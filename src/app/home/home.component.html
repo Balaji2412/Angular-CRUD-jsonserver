@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <div class="container-fluid">
+    <h1 style="color: aliceblue;"> Magic of Books</h1>
+    <div class="d-flux">
+    </div>
+
+  </div>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link"  routerLink="/home"  > Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/wishlist">Wishlist</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/completed"> Completed</a>
+    </li>
+  </ul>
+  <button class="btn  mx-2 shadow  bg-body rounded"  routerLink="/login" >Logout</button>
+</nav>
+
+<div class="main">
+  <div *ngFor="let b of bdata" class="body">
+    <div class="img">
+      <img id="img" src="{{b.Image}}" alt="book image">
+    </div>
+    <div class="details">
+        <p id="title"><b><strong> Title</strong> </b> :<span id="sid">{{b.Title}}</span></p>
+        <p id="arthor"><b><strong> Author</strong></b> :<span id="sid">{{b.Author}}</span></p>
+    </div>
+      <div class="btn"></div>
+        <button type="submit" (click)="AddTOwishlist(b)"> Add to Wish List</button>
+        <button type="submit" (click)="AddTOCompleted(b)">Completed</button>
+      </div>
+</div>

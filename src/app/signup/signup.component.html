@@ -1,0 +1,49 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>SignUp</h1>
+          <h6>Register Yourself</h6>
+        </div>
+        <form>
+          <form [formGroup]="signupforms" (ngSubmit)="signup()">
+
+            <div class="mb-3">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="email" formControlName="fullname" class="form-control" id="fullname" aria-describedby="emailHelp">
+              <span class="text-danger" *ngIf="signupforms.controls['fullname'].dirty && signupforms.hasError('required','fullname')"> *your Name is required</span>
+
+
+            </div>
+
+            <div class="mb-3">
+              <label for="mobilenumber" class="form-label">Mobile Number</label>
+              <input type="number" formControlName="mobilenumber" class="form-control" id="mobilenumber">
+              <span class="text-danger" *ngIf="signupforms.controls['mobilenumber'].dirty && signupforms.hasError('required','mobilenumber')"> *mobile number is required</span>
+
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" formControlName="email" class="form-control" id="email">
+              <span class="text-danger" *ngIf="signupforms.controls['email'].dirty && signupforms.hasError('required','email')"> *Email is required</span>
+
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="password">
+              <span class="text-danger" *ngIf="signupforms.controls['password'].dirty && signupforms.hasError('required','password')"> *password is required</span>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!signupforms.valid">signup</button>
+          </form>
+            <a routerLink="/login" style=" color: #EEECDA;"  > Already Registered? Click to login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
